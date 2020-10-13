@@ -1,11 +1,6 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import './App.css';
-
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import axios from 'axios';
 
 import Menu from './Menu/Menu';
 import Hero from './Hero/Hero';
@@ -13,9 +8,27 @@ import HomePage from './HomePage/HomePage';
 import Footer from './Footer/Footer'
 import LoginPage from './LoginPage/LoginPage';
 import AboutPage from './AboutPage/AboutPage';
+import AxiosPie from './AxiosPie/AxiosPie';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+
+// componentDidMount() {
+//   axios.get('http://localhost:5000/budget')
+//   .then(response => {
+//     console.log(response.data);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+// }
 
 function App() {
+
   return (
     <Router>
       <Menu />

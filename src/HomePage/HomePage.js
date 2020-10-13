@@ -1,4 +1,6 @@
 import React from 'react';
+import AxiosPie from '../AxiosPie/AxiosPie'
+
 
 function HomePage() {
   return (
@@ -68,9 +70,9 @@ function HomePage() {
     
            
             <article>
-                <h1>Chart</h1>
-                <p>
-                    {/* <canvas id="myChart" width="400" height="400"></canvas> */}
+                <h1><center>Pie Chart using Axios</center></h1>
+                <p style={{height:"500px",width:"500px"}}>
+                    <AxiosPie />
                 </p>
             </article>                 
 
