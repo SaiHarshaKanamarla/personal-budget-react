@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import './App.css';
+import './App.scss';
 import axios from 'axios';
 
 import Menu from './Menu/Menu';
