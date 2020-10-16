@@ -76,6 +76,7 @@ function DthreeChart(props) {
       .attr("alignment-baseline", "middle")
       .text((d) => d.data.title)
       .style("fill", (_, i) => colorScale(data.length))
+      .style("fill", "white")
       .attr("transform", (d) => {
         const [x, y] = arcGenerator.centroid(d);
         return `translate(${x}, ${y})`;
