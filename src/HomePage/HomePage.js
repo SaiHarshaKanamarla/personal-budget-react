@@ -1,9 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import AxiosPie from '../AxiosPie/AxiosPie'
 import DthreeChart from '../DthreeChart/DthreeChart';
 
 
-function HomePage() {
+const HomePage = () => {
+
+  const [chartData, setChartData] = useState({});
+  const [data, setData] = useState({});
+
+  const chart = () => {
+    let budgetTitle = [];
+    let budgetValue = [];
+    axios.get('http://localhost:5000/budget')
+    .then(res => {
+      for (var i = 0; i< res.data.myBudget.length; i++) {
+       budgetTitle.push(res.data.myBudget[i].title);
+       budgetValue.push(res.data.myBudget[i].budget);
+  
+      }
+      console.log(budgetTitle);
+      setData(res.data.myBudget);
+    setChartData({
+      labels: budgetTitle,
+      datasets: [
+        {
+          label: "D3 Pie Chart for Personal Budget",
+          data: budgetValue,
+          backgroundColor : ['#ffcd56',
+          '#ff6384',
+          '#40E82F',
+          '#6E453C',
+          '#23rvfs',
+          '#6324EA',
+          '#A9256B',
+          '#0BF0E8',
+          '#F0FF00'
+          ],
+          borderWidth: 2
+        }
+      ]
+    })
+  }).catch(()=> {
+
+  })
+}
+
+  useEffect(() => {
+    chart();
+  }, [!data]);
+
+
+
   return (
     <div className="container center">
 
@@ -80,7 +128,7 @@ function HomePage() {
             <article>
                 <h1><center>Pie Chart using D3.js</center></h1>
                 <p style={{height:"500px",width:"500px"}}>
-                    {/* <DthreeChart /> */}
+                     <DthreeChart /> 
                 </p>
             </article>             
 

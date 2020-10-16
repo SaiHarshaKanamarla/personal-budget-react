@@ -12,8 +12,8 @@ const AxiosPie = () =>{
         let empBudget = []
         Axios.get("http://localhost:5000/budget")
              .then(res =>{
-                 console.log(res);
-                 for(const dataObj of res.data){
+                 console.log(res.data.myBudget);
+                 for(const dataObj of res.data.myBudget){
                     empTitle.push(dataObj.title);
                     empBudget.push(dataObj.budget);
                  }
@@ -52,7 +52,7 @@ const AxiosPie = () =>{
 
     return(
         <div className="App">
-            <div style={{height:"500px",width:"500px"}}>
+            <div style={{height:"700px",width:"700px"}}>
                 <Pie data = {chartData} />
             </div>
         </div>
